@@ -1,0 +1,13 @@
+**** Manual for vehicleDb.js Interface ****
+
+Note: Test interface is vehicleDb_test.js
+
+Functions:
+    getVehicleList() -> [{LICENCE:"KFZ-123"},...]
+        returns list of objects with single field (LICENCE). Content of licence is used to identify individual vehicle.
+    getVehicleDetails(licence (STRING)) -> {Object with LICENCE, MILEAGE, MILEAGEUNIT, TYPE, PRODUCTIONYEAR}
+        returns object with individual characteristics of a vehicle
+    setNewVehicle(newVehicle (OBJECT)) -> STRING
+        stores a new vehicle in the Db and returns a string starting with SUCCESS or FAIL
+    setVehicleDetail(licence (STRING), changes (OBJECT)) -> STRING
+        updates details on a vehicle
