@@ -10,7 +10,7 @@ var dbCon = mysql.createConnection({
 function getVehicleList() {
     return dbCon.connect(function(err) {
         if(err) throw err;
-        confirm.query("SELECT LICENSE FROM VEHICLES", function (err, result, fields) {
+        dbCon.query("SELECT LICENSE FROM VEHICLES", function (err, result, fields) {
             if(err) throw err;
             return result;
         })
@@ -20,7 +20,8 @@ function getVehicleList() {
 function getVehicleDetails(license) {
     return dbCon.connect(function(err) {
         if(err) throw err;
-        confirm.query(`SELECT * FROM VEHICLES WHERE LICENSE LIKE ${license}`, function (err, result, fields) {
+        var query = "SELECT * FROM VEHICLES WHERE LICENSE LIKE " + license;
+        dbCon.query(query, function (err, result, fields) {
             if(err) throw err;
             return result;
         })
