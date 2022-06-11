@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/CU-0xff/DemoCarSharing#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "4.15.5",
     "mysql": "^2.18.1"
   }
 }
