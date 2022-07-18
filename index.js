@@ -5,6 +5,7 @@ const vehicleDb = require('./dbInterface/vehicleDB_test.js');
 
 const app = express();
 
+// Nothing special
 
 app.listen(config.PORT, () => 
     console.log(`Vehicle Telemetry Service is listening on port ${config.PORT}!`),
