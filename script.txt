@@ -1,0 +1,77 @@
+Demo Setup:
+* Delete Code and install from GitHub
+* Reject PR and delete branch
+* Delete Branch from GitHub (git checkout main / git remote prune origin)
+git switch --discard-changes --recurse-submodules main
+git remote prune origin
+* generate branch to do PR
+* Prescan to upload libcode raries
+* Two CMDs open in demo source directory
+* Browser - Snyk IO with Project, Jira with Project
+* Jenkins 
+
+OpenSource:
+Add to package.json - 
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "lodash" : "2.4.2"
+run npm install --ignore-scripts
+
+Add in index.js
+
+app.get(config.urlPrefix+`vehicles/list`, (req, res) =>{
+    let vehicleList = vehicleDb.getVehicleList();
+    return res.send(vehicleList);
+})
+
+app.get(config.urlPrefix+`vehicles/:vehicleId`, (req,res) => {
+    let vehicleDetail = vehicleDb.getVehicleDetails(req.params.vehicleId);
+    return res.send(vehicleDetail);
+})
+
+Make sure vehicleDB_test is active
+
+Demo Run:
+
+
+
+* Talk about task (Front end API to query vehicles of car sharing) - Show JIRA
+https://cu-0xff.atlassian.net/jira/software/projects/CST/boards/1
+
+* Show documentation and explain we are using existing library
+dbInterface / vehicleManual.txt
+
+* Show current findings using project homepage in snyk.io
+  Priority score
+  Integration into Jira
+
+* Run test with with testing library
+node index.js
+curl -X GET http://localhost:80/vehicles/list
+curl -X GET http://localhost:80/vehicles/KQZ-123
+
+* change to real library
+
+* Run code check
+* Show results
+* first look at Unsanitized HTML, fix them
+    res.setHeader('Content-Type', 'application/json');
+* Saving devalidates, scan again
+// * Check on Quality
+//     res.setHeader('Content-Type', 'application/json; charset=utf-8');
+* investigate SQL injection - interfile (my code and old code on itself "safe", yet combination makes it unsecure)
+* Fix 
+        var query = "SELECT * FROM VEHICLES WHERE LICENSE LIKE ?";
+        dbCon.query(query, [license], function (err, result, fields) {
+*Scan again
+* Leave one XSS in for demo 
+
+* Commit changes
+* Do PR request
+* Go to GitHub page https://github.com/CU-0xff/DemoCarSharing
+* Show GitHub comment and website 
+
+* Show Jenkins
+
+
