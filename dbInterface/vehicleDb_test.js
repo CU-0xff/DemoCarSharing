@@ -14,6 +14,10 @@ function setVehicleDetail(licence, changes) {
     return `SUCCESS $licence`;
 }
 
+function reserveVehicle(license) {
+    return `SUCCESS $licence`;
+}
+
 module.exports = {
     getVehicleList : getVehicleList,
     getVehicleDetails : getVehicleDetails,
