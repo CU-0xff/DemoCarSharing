@@ -28,6 +28,10 @@ function getVehicleDetails(license) {
     })
 }
 
+function reserveVehicle(license) {
+    return `SUCCESS $licence`;
+}
+
 module.exports = {
     getVehicleList : getVehicleList,
     getVehicleDetails : getVehicleDetails,
