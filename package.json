@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/CU-0xff/DemoCarSharing#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "express": "4.17.3",
+    "mysql": "^2.18.1",
+    "lodash" : "2.4.2"
   }
 }
