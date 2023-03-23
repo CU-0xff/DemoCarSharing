@@ -20,8 +20,8 @@ function getVehicleList() {
 function getVehicleDetails(license) {
     return dbCon.connect(function(err) {
         if(err) throw err;
-        var query = "SELECT * FROM VEHICLES WHERE LICENSE LIKE " + license;
-        dbCon.query(query, function (err, result, fields) {
+        var query = "SELECT * FROM VEHICLES WHERE LICENSE LIKE ";
+        dbCon.query(query,[license], function (err, result, fields) {
             if(err) throw err;
             return result;
         })
